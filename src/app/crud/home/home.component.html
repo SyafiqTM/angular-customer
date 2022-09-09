@@ -1,0 +1,44 @@
+<div class="mt-5">
+  <h1>List of Customers</h1>
+  <button type="button" class="btn btn-outline-primary pull-right d-flex ms-auto" data-mdb-ripple-color="dark" routerLink="/crud/create">Add Customer</button>
+  <table class="mt-2 mb-5">
+      <thead>
+          <tr>
+              <th [ngStyle]="{'width':'5%', 'text-align':'center'}">#</th>
+              <th>First Name</th>
+              <th>Last Name Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Gender</th>
+              <th>Date of Birth</th>
+              <th>Date Joined</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody class="table-light table-striped ">
+          <tr *ngFor="let customer of customers; let i = index">
+              <td [ngStyle]="{'width':'5%','text-align':'center'}">{{ i+1}}</td>
+              <td [ngStyle]="{'width':'15%'}"><a [routerLink]="['/crud/details', customer.id]">{{customer.firstname}}</a></td>
+              <td [ngStyle]="{'width':'15%'}"><a [routerLink]="['/crud/details', customer.id]">{{customer.lastname}}</a></td>
+              <td [ngStyle]="{'width':'10%'}">{{customer.email}}</td>
+              <td [ngStyle]="{'width':'30%'}">{{customer.address}}</td>
+              <td>
+                <span *ngIf='customer.gender == "male"' class="badge badge-warning">
+                  {{customer.gender}}
+                </span>
+                <span *ngIf='customer.gender == "female"' class="badge badge-danger">
+                  {{customer.gender}}
+                </span>
+              </td>
+              <td [ngStyle]="{'width':'10%'}">{{customer.dob | date}}</td>
+              <td [ngStyle]="{'width':'10%'}">{{customer.created }}</td>
+              <td>
+                <div class="d-flex flex-column">
+                  <button type="button" class="btn btn-primary mb-2" (click)="updateCustomer(customer)"><i class="fas fa-pencil-alt"></i>Update</button>
+                  <button type="button" class="btn btn-danger" (click)="confirmDelete(customer)"><i class="fas fa-trash"></i>Delete</button>
+                </div>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

@@ -1,0 +1,122 @@
+<div class="container mt-5">
+  <a class="btn mb-2 border border-0 shadow-0" [ngStyle]="{'font-size': '1rem' }" [routerLink]="['/crud/home']"
+    routerDirection="root"><i class="fa-solid fa-reply me-2"></i>Back</a>
+
+  <div class="mt-2 card border border-primary shadow-0 mb-3" [ngStyle]="{'max-width': '720px', 'margin': 'auto' }">
+    <div class="card-header bg-primary text-white">Update Customer</div>
+    <div class="card-body">
+      <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-outline mb-4">
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">First Name <span class="text-danger">*</span></label>
+              <input type="text" formControlName="firstname" [(ngModel)]="inputFirstname"
+                class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+              <span class="text-danger" *ngIf="firstname && firstname.hasError('required') && !submit">Field is required</span>
+              <span class="text-danger" *ngIf="firstname && firstname.hasError('minlength') && !submit">Minimum length 3 characters</span>
+              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-outline mb-4">
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">Last Name <span class="text-danger">*</span></label>
+              <input type="text" formControlName="lastname" [(ngModel)]="inputLastname"
+                class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+              <span class="text-danger" *ngIf="lastname && lastname.hasError('required') && !submit">Field is required</span>
+              <span class="text-danger" *ngIf="lastname && lastname.hasError('minlength') && !submit">Minimum length 3 characters</span>
+              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="form-outline mb-4">
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">Email <span class="text-danger">*</span></label>
+              <input type="text" formControlName="email" [(ngModel)]="inputEmail"
+                class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+              <span class="text-danger" *ngIf="email && email.hasError('required') && !submit">Field is required</span>
+              <span class="text-danger" *ngIf="email && email.hasError('pattern') && !submit">Please enter valid email</span>
+              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <label class="form-control ms-0 ps-0 pb-0 mb-1 border border-0 ">Gender <span class="text-danger">*</span></label>
+            <mat-form-field  appearance="fill" [ngStyle]="{'width': '100%'}" class="bg-light shadow-3">
+              <mat-select formControlName="gender" [(value)]="selected" class="">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <span class="text-danger" *ngIf="gender && gender.hasError('required') && !submit">Field is required</span>
+
+          </div>
+          <div class="col-6">
+            <div class="form-outline mb-4">
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">Phone <span class="text-danger">*</span></label>
+              <input type="text" formControlName="phone" [(ngModel)]="inputPhone"
+                class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+              <span class="text-danger" *ngIf="phone && phone.hasError('required') && !submit">Field is required</span>
+              <span class="text-danger" *ngIf="phone && phone.hasError('minlength') && !submit">Minimum length 10 digit numbers</span>
+              <span class="text-danger" *ngIf="phone && phone.hasError('pattern') && !submit">Only numbers are allowed</span>
+              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="form-outline mb-4">
+          <label class="form-control ms-0 ps-0 pb-0 mb-1">Address <span class="text-danger">*</span></label>
+          <textarea type="text" formControlName="address" [(ngModel)]="inputAddress"
+            class="form-control border-bottom shadow-3 mt-1 bg-light bg-gradient" rows="4" maxlength="300"></textarea>
+          <span class="text-danger" *ngIf="address && address.hasError('required') && !submit">Field is
+            required</span>
+          <span class="text-danger" *ngIf="address && address.hasError('minlength') && !submit">Minimum
+            length 5 characters</span>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-outline mb-4">
+              <!-- <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput #datePicker [matDatepicker]="picker" [(ngModel)]="dateOfBirth">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">Date Of Birth <span class="text-danger">*</span></label>
+              <mat-form-field appearance="fill" [ngStyle]="{'width': '100%'}" class=" pb-0 mb-0 bg-light shadow-3">
+                <!-- <mat-label>Choose a date</mat-label> -->
+                <input matInput [matDatepicker]="dob" formControlName="dateOfBirth" [(ngModel)]="inputDob"
+                (dateChange)="addEvent('change', $event)"
+                class="form-contorl ">
+                <mat-datepicker-toggle matSuffix [for]="dob" class="pb-0"></mat-datepicker-toggle>
+                <mat-datepicker #dob></mat-datepicker>
+              </mat-form-field>
+              <span class="text-danger" *ngIf="userForm.get('dateOfBirth')?.hasError('required') && !submit">Field is required</span>
+              <!-- <span class="text-danger">{{ dateOfBirth?.errors | json}}</span> -->
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-outline mb-4">
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">Age </label>
+              <input type="text" formControlName="age" [(ngModel)]="inputAge" [ngStyle]="{'padding': '0.5em'}" readonly
+                class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+            </div>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <button value="submit" type="submit" class="btn btn-primary btn-block mb-4 mt-4">Save </button>
+      </form>
+    </div>
+
+  </div>
+
+</div>
