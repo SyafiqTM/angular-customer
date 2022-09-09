@@ -24,7 +24,7 @@ To make sure crud functionality is up. Please run the script:
 ```
 npm run server
 ```
-# Serve Angular
+## Serve Angular
 
 Now we can serve our application:
 
