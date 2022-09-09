@@ -1,27 +1,33 @@
-# Angular14
+# Customer CRUD Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
-## Development server
+## Prerequisite
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Installation Node & Angular 14
 
-## Code scaffolding
+## Mockup Database 
+This application runs using Json-server. File name database.json located in src/server folder.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Run Installation
 
-## Build
+Before start please follow the installation script: 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+npm i
+```
 
-## Running unit tests
+## Up Local Database
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To make sure crud functionality is up. Please run the script:
 
-## Running end-to-end tests
+```
+npm run server
+```
+# Serve Angular
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Now we can serve our application:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+npm serve
+```
