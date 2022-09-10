@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <a class="btn mb-2 border border-0 shadow-0" [ngStyle]="{'font-size': '1rem' }" [routerLink]="['/crud/home']"
+    routerDirection="root"><i class="fa-solid fa-reply me-2"></i>Back</a>
+
+  <div class="mt-2 card border border-primary shadow-0 mb-3" [ngStyle]="{'max-width': '720px', 'margin': 'auto' }">
+    <div class="card-header bg-primary text-white">Update Detail</div>
+    <div class="card-body">
+      <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+
+        <div class="form-outline mb-4">
+          <label class="form-control ms-0 ps-0 pb-0 mb-1">Name <span class="text-danger">*</span></label>
+          <input type="text" formControlName="name" [(ngModel)]="inputName"
+            class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+          <span class="text-danger" *ngIf="name && name.hasError('required') && !submit">Name is required</span>
+          <span class="text-danger" *ngIf="name && name.hasError('minlength') && !submit">Minimum length 4
+            characters</span>
+          <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+        </div>
+
+        <div class="form-outline mb-4">
+          <label class="form-control ms-0 ps-0 pb-0 mb-1">Description</label>
+          <textarea type="text" formControlName="description" [(ngModel)]="inputDescription"
+            class="form-control border-bottom shadow-3 mt-1 bg-light bg-gradient" rows="4" maxlength="300"></textarea>
+          <span class="text-danger"
+            *ngIf="description && description.hasError('required') && !submit">Description is
+            required</span>
+          <span class="text-danger" *ngIf="description && description.hasError('minlength') && !submit">Minimum
+            length 4 characters</span>
+
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="form-outline mb-4">
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">Price</label>
+              <input type="text" formControlName="price" [(ngModel)]="inputPrice"
+              class="form-control border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+              <span class="text-danger"
+                *ngIf="price && price.hasError('required') &&!submit">Price is
+                required</span>
+              <span class="text-danger"
+                *ngIf="price && price.hasError('invalidNumber') &&!submit">Price can only be numbers</span>
+
+
+            </div>
+
+          </div>
+          <div class="col-6">
+
+            <div class="form-outline mb-4">
+              <label class="form-control ms-0 ps-0 pb-0 mb-1">Quantity</label>
+              <input type="number" formControlName="quantity"  [(ngModel)]="inputQuantity"
+                class="form-control border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+                <span class="text-danger"
+                *ngIf="quantity && quantity.hasError('required') && !submit">Quantity is
+                required</span>
+                <span class="text-danger"
+                *ngIf="quantity && quantity.hasError('pattern') && !submit">Quantity can only be numbers</span>
+
+            </div>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <button value="submit" type="submit" class="btn btn-primary btn-block mb-4 mt-4">Save</button>
+      </form>
+    </div>
+
+  </div>
+
+</div>

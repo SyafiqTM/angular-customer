@@ -1,0 +1,226 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "firstname": "Terry",
+      "lastname": "Medhurst",
+      "age": 50,
+      "gender": "male",
+      "email": "atuny0@sohu.com",
+      "phone": "+63 791 675 8914",
+      "dob": "2000-12-25",
+      "address": {
+        "street": "1745 T Street Southeast",
+        "city": "Washington",
+        "postalCode": "20020",
+        "state": "DC"
+      },
+      "created": "2021-10-25"
+    },
+    {
+      "id": 2,
+      "firstname": "Sheldon",
+      "lastname": "Quigley",
+      "age": 28,
+      "gender": "male",
+      "email": "hbingley1@plala.or.jp",
+      "phone": "+7 813 117 7139",
+      "dob": "2003-08-02",
+      "address": {
+        "street": "6007 Applegate Lane",
+        "city": "Louisville",
+        "postalCode": "40219",
+        "state": "KY"
+      },
+      "created": "2021-10-30"
+    },
+    {
+      "id": 3,
+      "firstname": "Terrill",
+      "lastname": "Hills",
+      "age": 38,
+      "gender": "male",
+      "email": "rshawe2@51.la",
+      "phone": "+63 739 292 7942",
+      "dob": "1992-12-30",
+      "address": {
+        "street": "560 Penstock Drive",
+        "city": "Grass Valley",
+        "postalCode": "95945",
+        "state": "CA"
+      },
+      "created": "2021-04-25"
+    },
+    {
+      "id": 4,
+      "firstname": "Miles",
+      "lastname": "Cummerata",
+      "age": 49,
+      "gender": "female",
+      "email": "yraigatt3@nature.com",
+      "phone": "+86 461 145 4186",
+      "dob": "1969-01-16",
+      "address": {
+        "street": "150 Carter Street",
+        "city": "Manchester",
+        "postalCode": "06040",
+        "state": "CT"
+      },
+      "created": "2021-06-25"
+    },
+    {
+      "id": 5,
+      "firstname": "Mavis",
+      "lastname": "Schultz",
+      "age": 38,
+      "gender": "female",
+      "email": "kmeus4@upenn.edu",
+      "phone": "+372 285 771 1911",
+      "dob": "1968-11-03",
+      "address": {
+        "street": "2721 Lindsay Avenue",
+        "city": "Louisville",
+        "postalCode": "40206",
+        "state": "KY"
+      },
+      "created": "2021-06-10"
+    },
+    {
+      "id": 6,
+      "firstname": "Alison",
+      "lastname": "Reichert",
+      "age": 21,
+      "gender": "female",
+      "email": "jtreleven5@nhs.uk",
+      "phone": "+351 527 735 3642",
+      "dob": "1969-07-21",
+      "address": {
+        "street": "18 Densmore Drive",
+        "city": "Essex",
+        "postalCode": "05452",
+        "state": "VT"
+      },
+      "created": "2021-07-10"
+    },
+    {
+      "id": 7,
+      "firstname": "Oleta",
+      "lastname": "Abbott",
+      "age": 31,
+      "gender": "female",
+      "email": "dpettegre6@columbia.edu",
+      "phone": "+62 640 802 7111",
+      "dob": "1982-02-21",
+      "address": {
+        "street": "637 Britannia Drive",
+        "city": "Vallejo",
+        "postalCode": "94591",
+        "state": "CA"
+      },
+      "created": "2021-11-10"
+    },
+    {
+      "id": 8,
+      "firstname": "Ewell",
+      "lastname": "Mueller",
+      "age": 29,
+      "gender": "male",
+      "email": "ggude7@chron.com",
+      "phone": "+86 946 297 2275",
+      "dob": "1964-08-24",
+      "address": {
+        "street": "5601 West Crocus Drive",
+        "city": "Glendale",
+        "postalCode": "85306",
+        "state": "AZ"
+      },
+      "created": "2021-06-10"
+    },
+    {
+      "id": 9,
+      "firstname": "Demetrius",
+      "lastname": "Corkery",
+      "age": 22,
+      "gender": "male",
+      "email": "nloiterton8@aol.com",
+      "phone": "+86 356 590 9727",
+      "dob": "1971-03-11",
+      "address": {
+        "street": "5403 Illinois Avenue",
+        "city": "Nashville",
+        "postalCode": "37209",
+        "state": "TN"
+      },
+      "created": "2021-06-03"
+    },
+    {
+      "id": 10,
+      "firstname": "Eleanora",
+      "lastname": "Price",
+      "age": 37,
+      "gender": "female",
+      "email": "umcgourty9@jalbum.net",
+      "phone": "+60 184 408 0824",
+      "dob": "1958-08-11",
+      "address": {
+        "street": "8821 West Myrtle Avenue",
+        "city": "Glendale",
+        "postalCode": "85305",
+        "state": "AZ"
+      },
+      "created": "2022-04-10"
+    },
+    {
+      "firstname": "syafiq",
+      "lastname": "zahir",
+      "address": "qwerr",
+      "age": "22333",
+      "email": "syafiq.zahir@yahoo.com",
+      "phone": "0123456789",
+      "gender": "male",
+      "dob": "2022-09-21T16:00:00.000Z",
+      "created": "2022-09-09",
+      "updated": null,
+      "id": 11
+    },
+    {
+      "id": 13,
+      "firstname": "We are",
+      "lastname": "Maafkan Pondan",
+      "email": "pondan@mantap.com",
+      "address": "pondan stay house",
+      "gender": "female",
+      "phone": "1231313423525",
+      "dob": "1992-08-15T16:00:00.000Z",
+      "age": "32",
+      "created": "2022-09-09",
+      "updated": "2022-09-09"
+    },
+    {
+      "id": 14,
+      "firstname": "Axxel",
+      "lastname": "clouddy",
+      "email": "axellllalaa@haha.com",
+      "address": "entahla nak",
+      "gender": "male",
+      "phone": "12313213232",
+      "dob": "1992-11-20T16:00:00.000Z",
+      "age": 29,
+      "created": "2022-09-09",
+      "updated": "2022-09-09"
+    },
+    {
+      "id": 15,
+      "firstname": "anak",
+      "lastname": "menetas",
+      "email": "ayam@mantap.com",
+      "address": "address di tukar",
+      "gender": "male",
+      "phone": "333333333333333",
+      "dob": "1940-10-22T16:40:00.000Z",
+      "age": 81,
+      "created": "2022-09-09",
+      "updated": "2022-09-09"
+    }
+  ]
+}

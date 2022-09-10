@@ -1,0 +1,76 @@
+<div class="mt-5">
+  <a class="btn mb-2 border border-0 shadow-0" [ngStyle]="{'font-size': '1rem' }" [routerLink]="['/crud/home']"
+    routerDirection="root"><i class="fa-solid fa-reply me-2"></i>Back</a>
+
+  <div class="mt-2 card shadow-3 mb-3" [ngStyle]="{'max-width': '720px', 'margin': 'auto' }">
+    <div class="card-header bg-primary text-white">Customer's Detail</div>
+    <div class="card-body">
+
+      <div class="overview mt-3">
+        <button type="button" class="btn btn-primary pull-right d-flex ms-auto" data-mdb-ripple-color="dark"
+          [routerLink]="['/crud/update',customer?.id]"><i class="fas fa-pencil-alt me-2"></i>Update</button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date Joined</th>
+            <th scope="col"><span class="badge badge-primary">{{customer?.created | date}}</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">First Name</th>
+            <td>
+              {{customer?.firstname}}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Last Name</th>
+            <td>
+              {{customer?.lastname}}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Email</th>
+            <td>
+              {{customer?.email}}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Phone</th>
+            <td>
+              {{customer?.phone}}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Address</th>
+            <td>
+              {{pullAddress}}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Date of Birth</th>
+            <td>
+              {{customer?.dob}}
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Gender</th>
+            <td>
+              {{customer?.gender}}
+            </td>
+          </tr>
+          <tr class="border-0">
+            <th scope="row" class="border-0">Age</th>
+            <td class="border-0">
+              {{customer?.age}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
