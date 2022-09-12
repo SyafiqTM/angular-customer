@@ -82,7 +82,7 @@ export class CreateComponent implements OnInit {
 
 
   submitForm() {
-    console.log(this.phone);
+    // console.log(this.phone);
 
     if(this.userForm.invalid) {
       this.submit = false;
@@ -102,9 +102,9 @@ export class CreateComponent implements OnInit {
         age: this.age
       };
 
-      // this.crudService.create(createCustomer).subscribe(res => {
-      //   this.router.navigate(['/crud/home/']);
-      // })
+      this.crudService.create(createCustomer).subscribe(res => {
+        this.router.navigate(['/crud/home/']);
+      })
     }
 
   }

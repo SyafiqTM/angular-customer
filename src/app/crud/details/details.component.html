@@ -40,7 +40,7 @@
           <tr>
             <th scope="row">Phone</th>
             <td>
-              {{customer?.phone}}
+              {{customer?.phone?.number ? customer?.phone?.number : customer?.phone}}
             </td>
           </tr>
           <tr>
@@ -52,7 +52,7 @@
           <tr>
             <th scope="row">Date of Birth</th>
             <td>
-              {{customer?.dob}}
+              {{customer?.dob | date}}
             </td>
           </tr>
           <tr>

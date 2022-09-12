@@ -58,12 +58,23 @@
           <div class="col-6">
             <div class="form-outline mb-4">
               <label class="form-control ms-0 ps-0 pb-0 mb-1">Phone <span class="text-danger">*</span></label>
-              <input type="text" formControlName="phone" [(ngModel)]="inputPhone"
-                class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
+              <!-- <input type="text" formControlName="phone"
+                class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" /> -->
+                <ngx-intl-tel-input
+                [cssClass]="'custom'"
+                [preferredCountries]="preferredCountries"
+                [enableAutoCountrySelect]="false"
+                [enablePlaceholder]="false"
+                [searchCountryFlag]="true"
+                [selectFirstCountry]="false"
+                [selectedCountryISO]="selectedCountryISO"
+                name="phone"
+                formControlName="phone"
+              ></ngx-intl-tel-input>
               <span class="text-danger" *ngIf="phone && phone.hasError('required') && !submit">Field is required</span>
               <span class="text-danger" *ngIf="phone && phone.hasError('minlength') && !submit">Minimum length 10 digit numbers</span>
-              <span class="text-danger" *ngIf="phone && phone.hasError('pattern') && !submit">Only numbers are allowed</span>
-              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+              <span class="text-danger" *ngIf="phone && phone.hasError('validatePhoneNumber') && !submit">Please enter valid phone numbers</span>
+              <span class="text-danger">{{ phone?.errors | json}}</span>
             </div>
           </div>
         </div>

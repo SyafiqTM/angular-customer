@@ -15,7 +15,7 @@
                 class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
               <span class="text-danger" *ngIf="firstname && firstname.hasError('required') && !submit">Field is required</span>
               <span class="text-danger" *ngIf="firstname && firstname.hasError('minlength') && !submit">Minimum length 3 characters</span>
-              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+              <span class="text-danger">{{ firstname?.errors | json}}</span>
             </div>
           </div>
           <div class="col-6">
@@ -25,7 +25,7 @@
                 class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
               <span class="text-danger" *ngIf="lastname && lastname.hasError('required') && !submit">Field is required</span>
               <span class="text-danger" *ngIf="lastname && lastname.hasError('minlength') && !submit">Minimum length 3 characters</span>
-              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+              <span class="text-danger">{{ lastname?.errors | json}}</span>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
                 class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
               <span class="text-danger" *ngIf="email && email.hasError('required') && !submit">Field is required</span>
               <span class="text-danger" *ngIf="email && email.hasError('pattern') && !submit">Please enter valid email</span>
-              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+              <span class="text-danger">{{ email?.errors | json}}</span>
             </div>
           </div>
         </div>
@@ -53,6 +53,7 @@
               </mat-select>
             </mat-form-field>
             <span class="text-danger" *ngIf="gender && gender.hasError('required') && !submit">Field is required</span>
+            <span class="text-danger">{{ gender?.errors | json}}</span>
 
           </div>
           <div class="col-6">
@@ -73,8 +74,8 @@
               ></ngx-intl-tel-input>
               <span class="text-danger" *ngIf="phone && phone.hasError('required') && !submit">Field is required</span>
               <span class="text-danger" *ngIf="phone && phone.hasError('minlength') && !submit">Minimum length 10 digit numbers</span>
-              <span class="text-danger" *ngIf="phone && phone.hasError('pattern') && !submit">Only numbers are allowed</span>
-              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+              <span class="text-danger" *ngIf="phone && phone.hasError('validatePhoneNumber') && !submit">Please enter valid phone numbers</span>
+              <span class="text-danger">{{ phone?.errors | json}}</span>
             </div>
           </div>
         </div>
@@ -89,6 +90,7 @@
             required</span>
           <span class="text-danger" *ngIf="address && address.hasError('minlength') && !submit">Minimum
             length 5 characters</span>
+            <span class="text-danger">{{ address?.errors | json}}</span>
         </div>
 
         <div class="row">
@@ -111,7 +113,7 @@
                 <mat-datepicker #dob></mat-datepicker>
               </mat-form-field>
               <span class="text-danger" *ngIf="userForm.get('dateOfBirth')?.hasError('required') && !submit">Field is required</span>
-              <!-- <span class="text-danger">{{ dateOfBirth?.errors | json}}</span> -->
+              <!-- <span class="text-danger">{{ dob?.errors | json}}</span> -->
             </div>
           </div>
           <div class="col-6">
@@ -119,7 +121,7 @@
               <label class="form-control ms-0 ps-0 pb-0 mb-1">Age </label>
               <input type="text" formControlName="age" [ngStyle]="{'padding': '0.5em'}" [(ngModel)]="ageSetting"
                 class="form-control mb-1 border-bottom shadow-3 mt-1 bg-light bg-gradient" />
-              <!-- <span class="text-danger">{{ name?.errors | json}}</span> -->
+              <span class="text-danger">{{ age?.errors | json}}</span>
             </div>
           </div>
         </div>
