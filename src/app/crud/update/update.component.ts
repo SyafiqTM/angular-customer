@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CustomValidator } from 'src/app/services/customvalidator';
@@ -6,6 +6,7 @@ import { NotificationService } from 'src/app/services/notification.service';
 import { CrudService } from '../../services/crud.service';
 import { Customer } from '../../customer';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { CountryISO, PhoneNumberFormat, SearchCountryField } from 'ngx-intl-tel-input';
 
 
 @Component({
@@ -28,17 +29,38 @@ export class UpdateComponent implements OnInit {
   inputAge?: number;
   selected = 'male';
 
+    //phone itl code
+    separateDialCode = false;
+    SearchCountryField = SearchCountryField;
+    CountryISO = CountryISO;
+    selectedCountryISO:any;
+    PhoneNumberFormat = PhoneNumberFormat;
+    preferredCountries: CountryISO[] = [CountryISO.Malaysia];
+
+
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private crudService: CrudService,
-    private notifyService: NotificationService) {
+    private notifyService: NotificationService,
+    private cd: ChangeDetectorRef) {
 
 
   }
 
   ngOnInit(): void {
+    this.userForm = this.formBuilder.group({
+      firstname: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      lastname: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      address: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      email: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      phone: new FormControl('', [Validators.required,Validators.minLength(10)]),
+      gender: new FormControl('', [Validators.required]),
+      age: new FormControl(''),
+      dateOfBirth: new FormControl('', [Validators.required]),
+    })
+
     const id = this.route.snapshot.params['id']
     this.crudService.getCustomerById(id).subscribe((customer) => {
       this.customer = customer;
@@ -49,27 +71,32 @@ export class UpdateComponent implements OnInit {
         this.inputAddress = this.customer?.address?.street ? `${this.customer?.address?.street}, ${this.customer.address?.city}` : this.customer?.address;
         this.inputDob = this.customer?.dob;
         this.inputEmail = this.customer?.email;
-        this.inputPhone = this.customer?.phone;
+        this.inputPhone = this.customer?.phone?.number ? this.customer?.phone?.number : this.customer?.phone;
+        this.selectedCountryISO = this.customer?.phone?.countryCode ? this.customer?.phone?.countryCode : null;
+        console.log(this.selectedCountryISO);
+
         this.inputAge = this.customer?.age;
         this.selected = this.customer?.gender;
 
          this.gender?.setValue(this.selected);
-        console.log(this.customer?.age);
+        console.log(this.customer?.phone?.number);
 
+        this.userForm.patchValue({
+          phone: this.inputPhone
+        })
       }
     });
 
 
-    this.userForm = this.formBuilder.group({
-      firstname: new FormControl('', [Validators.required,Validators.minLength(3)]),
-      lastname: new FormControl('', [Validators.required,Validators.minLength(3)]),
-      address: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      email: new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
-      phone: new FormControl('', [Validators.required,Validators.minLength(10), Validators.pattern('^[0-9]+$')]),
-      gender: new FormControl('', [Validators.required]),
-      age: new FormControl(''),
-      dateOfBirth: new FormControl('', [Validators.required]),
-    })
+    console.log(this.inputPhone);
+
+
+
+  }
+
+  ngAfterViewInit() {
+
+    this.cd.detectChanges();
   }
 
   get firstname() { return this.userForm.get('firstname'); }
