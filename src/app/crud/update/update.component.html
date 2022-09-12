@@ -74,7 +74,7 @@
               <span class="text-danger" *ngIf="phone && phone.hasError('required') && !submit">Field is required</span>
               <span class="text-danger" *ngIf="phone && phone.hasError('minlength') && !submit">Minimum length 10 digit numbers</span>
               <span class="text-danger" *ngIf="phone && phone.hasError('validatePhoneNumber') && !submit">Please enter valid phone numbers</span>
-              <span class="text-danger">{{ phone?.errors | json}}</span>
+              <!-- <span class="text-danger">{{ phone?.errors | json}}</span> -->
             </div>
           </div>
         </div>
